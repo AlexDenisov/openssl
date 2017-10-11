@@ -1,7 +1,7 @@
 #fork: false
 fork: true
 project_name: OpenSSL
-max_distance: 1
+#max_distance: 1
 dry_run: false
 cache_directory: /usr/local/LLVM/mull_cache
 use_cache: true
@@ -12,10 +12,14 @@ timeout: 200000
 #   - CustomFormatterTest.Format
 #   - ContainerBufferTest.Empty
 # dynamic_library_file_list: /Users/alexdenisov/Projects/Mull/mull/BuildNinja/dylibs.list
-# mutation_operators:
-#   - negate_mutation_operator
-#   - remove_void_function_mutation_operator
-#   - 
+mutation_operators:
+  - negate_mutation_operator
+  - remove_void_function_mutation_operator
+  - add_mutation_operator
+  - math_sub_mutation_operator
+  - math_mul_mutation_operator
+  - math_div_mutation_operator
+  - add_or_replacement_mutation_operator
 custom_tests:
   - name: test_exdata
     method: test_exdata
