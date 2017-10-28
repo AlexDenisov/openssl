@@ -1,6 +1,6 @@
 #fork: false
 fork: true
-project_name: OpenSSL
+project_name: OpenSSL_packettest
 # max_distance: 1
 dry_run: false
 cache_directory: /usr/local/LLVM/mull_cache
@@ -34,10 +34,10 @@ custom_tests:
     program: packettest
     arguments: [ test_PACKET_remaining ]
 
-  - name: test_PACKET_end
-    method: test_PACKET_end
-    program: packettest
-    arguments: [ test_PACKET_end ]
+  # - name: test_PACKET_end
+  #   method: test_PACKET_end
+  #   program: packettest
+  #   arguments: [ test_PACKET_end ]
 
   - name: test_PACKET_equal
     method: test_PACKET_equal
