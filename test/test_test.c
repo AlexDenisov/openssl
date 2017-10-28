@@ -531,9 +531,47 @@ static int test_bn_output(int n)
     return 1;
 }
 
+#define PICK_TEST(test) \
+  if (strcmp(test_name, "" # test) == 0) {\
+    ADD_TEST(test); \
+  }\
+
+#define PICK_ALL_TESTS(test, args) \
+  if (strcmp(test_name, "" # test) == 0) {\
+    ADD_ALL_TESTS(test, (args)); \
+  }
+
+void setup_single_tests(void)
+{
+  char *test_name = test_get_argument(0);
+  PICK_TEST(test_int);
+  PICK_TEST(test_uint);
+  PICK_TEST(test_char);
+  PICK_TEST(test_uchar);
+  PICK_TEST(test_long);
+  PICK_TEST(test_ulong);
+  PICK_TEST(test_size_t);
+  PICK_TEST(test_pointer);
+  PICK_TEST(test_bool);
+  PICK_TEST(test_string);
+  PICK_TEST(test_memory);
+  PICK_TEST(test_memory_overflow);
+  PICK_TEST(test_bignum);
+  PICK_TEST(test_long_bignum);
+  PICK_TEST(test_long_output);
+  PICK_TEST(test_messages);
+  PICK_TEST(test_single_eval);
+  PICK_TEST(test_output);
+  PICK_ALL_TESTS(test_bn_output, OSSL_NELEM(bn_output_tests));
+}
 
 int setup_tests(void)
 {
+    if (test_get_argument_count() > 0) {
+      setup_single_tests();
+      return 1;
+    }
+
     ADD_TEST(test_int);
     ADD_TEST(test_uint);
     ADD_TEST(test_char);
