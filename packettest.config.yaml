@@ -10,14 +10,9 @@ bitcode_file_list: /Users/alexdenisov/Projects/OpenSSL/openssl/packettest.bitcod
 timeout: 10000
 exclude_locations:
   - testutil
-# tests:
-#   - CustomFormatterTest.Format
-#   - ContainerBufferTest.Empty
-# dynamic_library_file_list: /Users/alexdenisov/Projects/Mull/mull/BuildNinja/dylibs.list
 diagnostics: false
 mutation_operators:
   - all
-
 custom_tests:
   - name: test_PACKET_buf_init
     method: test_PACKET_buf_init
@@ -34,6 +29,7 @@ custom_tests:
     program: packettest
     arguments: [ test_PACKET_remaining ]
 
+  # This one is failing
   # - name: test_PACKET_end
   #   method: test_PACKET_end
   #   program: packettest
