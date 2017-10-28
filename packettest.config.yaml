@@ -8,127 +8,129 @@ use_cache: false
 test_framework: CustomTest
 bitcode_file_list: /Users/alexdenisov/Projects/OpenSSL/openssl/packettest.bitcode.list
 timeout: 10000
+exclude_locations:
+  - testutil
 # tests:
 #   - CustomFormatterTest.Format
 #   - ContainerBufferTest.Empty
 # dynamic_library_file_list: /Users/alexdenisov/Projects/Mull/mull/BuildNinja/dylibs.list
-diagnostics: true
+diagnostics: false
 mutation_operators:
   - all
 
 custom_tests:
   - name: test_PACKET_buf_init
     method: test_PACKET_buf_init
-    program_name: packettest
+    program: packettest
     arguments: [ test_PACKET_buf_init ]
 
   - name: test_PACKET_null_init
     method: test_PACKET_null_init
-    program_name: packettest
+    program: packettest
     arguments: [ test_PACKET_null_init ]
 
   - name: test_PACKET_remaining
     method: test_PACKET_remaining
-    program_name: packettest
+    program: packettest
     arguments: [ test_PACKET_remaining ]
 
   - name: test_PACKET_end
     method: test_PACKET_end
-    program_name: packettest
+    program: packettest
     arguments: [ test_PACKET_end ]
 
   - name: test_PACKET_equal
     method: test_PACKET_equal
-    program_name: packettest
+    program: packettest
     arguments: [ test_PACKET_equal ]
 
   - name: test_PACKET_get_1
     method: test_PACKET_get_1
-    program_name: packettest
+    program: packettest
     arguments: [ test_PACKET_get_1 ]
 
   - name: test_PACKET_get_4
     method: test_PACKET_get_4
-    program_name: packettest
+    program: packettest
     arguments: [ test_PACKET_get_4 ]
 
   - name: test_PACKET_get_net_2
     method: test_PACKET_get_net_2
-    program_name: packettest
+    program: packettest
     arguments: [ test_PACKET_get_net_2 ]
 
   - name: test_PACKET_get_net_3
     method: test_PACKET_get_net_3
-    program_name: packettest
+    program: packettest
     arguments: [ test_PACKET_get_net_3 ]
 
   - name: test_PACKET_get_net_4
     method: test_PACKET_get_net_4
-    program_name: packettest
+    program: packettest
     arguments: [ test_PACKET_get_net_4 ]
 
   - name: test_PACKET_get_sub_packet
     method: test_PACKET_get_sub_packet
-    program_name: packettest
+    program: packettest
     arguments: [ test_PACKET_get_sub_packet ]
 
   - name: test_PACKET_get_bytes
     method: test_PACKET_get_bytes
-    program_name: packettest
+    program: packettest
     arguments: [ test_PACKET_get_bytes ]
 
   - name: test_PACKET_copy_bytes
     method: test_PACKET_copy_bytes
-    program_name: packettest
+    program: packettest
     arguments: [ test_PACKET_copy_bytes ]
 
   - name: test_PACKET_copy_all
     method: test_PACKET_copy_all
-    program_name: packettest
+    program: packettest
     arguments: [ test_PACKET_copy_all ]
 
   - name: test_PACKET_memdup
     method: test_PACKET_memdup
-    program_name: packettest
+    program: packettest
     arguments: [ test_PACKET_memdup ]
 
   - name: test_PACKET_strndup
     method: test_PACKET_strndup
-    program_name: packettest
+    program: packettest
     arguments: [ test_PACKET_strndup ]
 
   - name: test_PACKET_contains_zero_byte
     method: test_PACKET_contains_zero_byte
-    program_name: packettest
+    program: packettest
     arguments: [ test_PACKET_contains_zero_byte ]
 
   - name: test_PACKET_forward
     method: test_PACKET_forward
-    program_name: packettest
+    program: packettest
     arguments: [ test_PACKET_forward ]
 
   - name: test_PACKET_get_length_prefixed_1
     method: test_PACKET_get_length_prefixed_1
-    program_name: packettest
+    program: packettest
     arguments: [ test_PACKET_get_length_prefixed_1 ]
 
   - name: test_PACKET_get_length_prefixed_2
     method: test_PACKET_get_length_prefixed_2
-    program_name: packettest
+    program: packettest
     arguments: [ test_PACKET_get_length_prefixed_2 ]
 
   - name: test_PACKET_get_length_prefixed_3
     method: test_PACKET_get_length_prefixed_3
-    program_name: packettest
+    program: packettest
     arguments: [ test_PACKET_get_length_prefixed_3 ]
 
   - name: test_PACKET_as_length_prefixed_1
     method: test_PACKET_as_length_prefixed_1
-    program_name: packettest
+    program: packettest
     arguments: [ test_PACKET_as_length_prefixed_1 ]
 
   - name: test_PACKET_as_length_prefixed_2
     method: test_PACKET_as_length_prefixed_2
-    program_name: packettest
+    program: packettest
     arguments: [ test_PACKET_as_length_prefixed_2 ]
 
