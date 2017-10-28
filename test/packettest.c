@@ -465,7 +465,6 @@ static int test_PACKET_as_length_prefixed_2(void)
     ADD_TEST(test); \
   }\
 
-
 void setup_single_tests(void)
 {
   char *test_name = test_get_argument(0);
