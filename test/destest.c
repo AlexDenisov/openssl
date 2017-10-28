@@ -693,9 +693,50 @@ static int test_des_quad_cksum(void)
 }
 #endif
 
+#define PICK_TEST(test) \
+  if (strcmp(test_name, "" # test) == 0) {\
+    ADD_TEST(test); \
+  }\
+
+#define PICK_ALL_TESTS(test, args) \
+  if (strcmp(test_name, "" # test) == 0) {\
+    ADD_ALL_TESTS(test, (args)); \
+  }\
+
+void setup_single_tests(void)
+{
+  char *test_name = test_get_argument(0);
+
+  PICK_ALL_TESTS(test_des_ecb, NUM_TESTS);
+  PICK_TEST(test_des_cbc);
+  PICK_TEST(test_ede_cbc);
+  PICK_ALL_TESTS(test_des_ede_ecb, NUM_TESTS - 2);
+  PICK_TEST(test_des_ede_cbc);
+  PICK_TEST(test_des_pcbc);
+  PICK_TEST(test_des_cfb8);
+  PICK_TEST(test_des_cfb16);
+  PICK_TEST(test_des_cfb32);
+  PICK_TEST(test_des_cfb48);
+  PICK_TEST(test_des_cfb64);
+  PICK_TEST(test_des_ede_cfb64);
+  PICK_TEST(test_des_ofb);
+  PICK_TEST(test_des_ofb64);
+  PICK_TEST(test_des_ede_ofb64);
+  PICK_TEST(test_des_cbc_cksum);
+  PICK_TEST(test_des_quad_cksum);
+  PICK_TEST(test_des_crypt);
+  PICK_ALL_TESTS(test_input_align, 4);
+  PICK_ALL_TESTS(test_output_align, 4);
+}
+
 int setup_tests(void)
 {
 #ifndef OPENSSL_NO_DES
+    if (test_get_argument_count() > 0) {
+      setup_single_tests();
+      return 1;
+    }
+
     ADD_ALL_TESTS(test_des_ecb, NUM_TESTS);
     ADD_TEST(test_des_cbc);
     ADD_TEST(test_ede_cbc);
