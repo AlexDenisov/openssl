@@ -1,0 +1,112 @@
+#fork: false
+fork: true
+project_name: OpenSSL_test_test
+# max_distance: 1
+dry_run: false
+cache_directory: /usr/local/LLVM/mull_cache
+use_cache: false
+test_framework: CustomTest
+bitcode_file_list: /Users/alexdenisov/Projects/OpenSSL/openssl/test_test.bitcode.list
+timeout: 10000
+exclude_locations:
+  - testutil
+diagnostics: false
+mutation_operators:
+  - all
+
+custom_tests:
+  - name: test_int
+    method: test_int
+    program: test_test
+    arguments: [ test_int ]
+
+  - name: test_uint
+    method: test_uint
+    program: test_test
+    arguments: [ test_uint ]
+
+  - name: test_char
+    method: test_char
+    program: test_char
+    arguments: [ test_char ]
+
+  - name: test_uchar
+    method: test_uchar
+    program: test_test
+    arguments: [ test_uchar ]
+
+  - name: test_long
+    method: test_long
+    program: test_test
+    arguments: [ test_long ]
+
+  - name: test_ulong
+    method: test_ulong
+    program: test_test
+    arguments: [ test_ulong ]
+
+  - name: test_size_t
+    method: test_size_t
+    program: test_test
+    arguments: [ test_size_t ]
+
+  - name: test_pointer
+    method: test_pointer
+    program: test_test
+    arguments: [ test_pointer ]
+
+  - name: test_bool
+    method: test_bool
+    program: test_test
+    arguments: [ test_bool ]
+
+  - name: test_string
+    method: test_string
+    program: test_test
+    arguments: [ test_string ]
+
+  - name: test_memory
+    method: test_memory
+    program: test_test
+    arguments: [ test_memory ]
+
+  - name: test_memory_overflow
+    method: test_memory_overflow
+    program: test_test
+    arguments: [ test_memory_overflow ]
+
+  - name: test_bignum
+    method: test_bignum
+    program: test_test
+    arguments: [ test_bignum ]
+
+  - name: test_long_bignum
+    method: test_long_bignum
+    program: test_test
+    arguments: [ test_long_bignum ]
+
+  - name: test_long_output
+    method: test_long_output
+    program: test_test
+    arguments: [ test_long_output ]
+
+  - name: test_messages
+    method: test_messages
+    program: test_test
+    arguments: [ test_messages ]
+
+  - name: test_single_eval
+    method: test_single_eval
+    program: test_test
+    arguments: [ test_single_eval ]
+
+  - name: test_output
+    method: test_output
+    program: test_test
+    arguments: [ test_output ]
+
+  - name: test_bn_output
+    method: test_bn_output
+    program: test_test
+    arguments: [ test_bn_output ]
+
