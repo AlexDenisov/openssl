@@ -460,12 +460,51 @@ static int test_PACKET_as_length_prefixed_2(void)
     return 1;
 }
 
+#define PICK_TEST(test) \
+  if (strcmp(test_name, "" # test) == 0) {\
+    ADD_TEST(test); \
+  }\
+
+
+void setup_single_tests(void)
+{
+  char *test_name = test_get_argument(0);
+  PICK_TEST(test_PACKET_buf_init);
+  PICK_TEST(test_PACKET_null_init);
+  PICK_TEST(test_PACKET_remaining);
+  PICK_TEST(test_PACKET_end);
+  PICK_TEST(test_PACKET_equal);
+  PICK_TEST(test_PACKET_get_1);
+  PICK_TEST(test_PACKET_get_4);
+  PICK_TEST(test_PACKET_get_net_2);
+  PICK_TEST(test_PACKET_get_net_3);
+  PICK_TEST(test_PACKET_get_net_4);
+  PICK_TEST(test_PACKET_get_sub_packet);
+  PICK_TEST(test_PACKET_get_bytes);
+  PICK_TEST(test_PACKET_copy_bytes);
+  PICK_TEST(test_PACKET_copy_all);
+  PICK_TEST(test_PACKET_memdup);
+  PICK_TEST(test_PACKET_strndup);
+  PICK_TEST(test_PACKET_contains_zero_byte);
+  PICK_TEST(test_PACKET_forward);
+  PICK_TEST(test_PACKET_get_length_prefixed_1);
+  PICK_TEST(test_PACKET_get_length_prefixed_2);
+  PICK_TEST(test_PACKET_get_length_prefixed_3);
+  PICK_TEST(test_PACKET_as_length_prefixed_1);
+  PICK_TEST(test_PACKET_as_length_prefixed_2);
+}
+
 int setup_tests(void)
 {
     unsigned int i;
 
     for (i = 1; i <= BUF_LEN; i++)
         smbuf[i - 1] = (i * 2) & 0xff;
+
+    if (test_get_argument_count() > 0) {
+      setup_single_tests();
+      return 1;
+    }
 
     ADD_TEST(test_PACKET_buf_init);
     ADD_TEST(test_PACKET_null_init);
