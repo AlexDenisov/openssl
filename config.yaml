@@ -1,6 +1,6 @@
 #fork: false
 fork: true
-project_name: OpenSSL
+project_name: OpenSSL_exdatatest
 # max_distance: 1
 dry_run: false
 cache_directory: /usr/local/LLVM/mull_cache
@@ -8,11 +8,6 @@ use_cache: false
 test_framework: CustomTest
 bitcode_file_list: /Users/alexdenisov/Projects/OpenSSL/openssl/exdatatest.bitcode.list
 timeout: 200000
-# tests:
-#   - CustomFormatterTest.Format
-#   - ContainerBufferTest.Empty
-# dynamic_library_file_list: /Users/alexdenisov/Projects/Mull/mull/BuildNinja/dylibs.list
-# diagnostics: true
 mutation_operators:
   - all
 custom_tests:

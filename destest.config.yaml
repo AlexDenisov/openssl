@@ -10,10 +10,6 @@ bitcode_file_list: /Users/alexdenisov/Projects/OpenSSL/openssl/destest.bitcode.l
 timeout: 10000
 exclude_locations:
   - testutil
-# tests:
-#   - CustomFormatterTest.Format
-#   - ContainerBufferTest.Empty
-# dynamic_library_file_list: /Users/alexdenisov/Projects/Mull/mull/BuildNinja/dylibs.list
 diagnostics: false
 mutation_operators:
   - all
