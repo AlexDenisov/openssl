@@ -1,0 +1,121 @@
+#fork: false
+fork: true
+project_name: OpenSSL_destest
+# max_distance: 1
+dry_run: false
+cache_directory: /usr/local/LLVM/mull_cache
+use_cache: false
+test_framework: CustomTest
+bitcode_file_list: /Users/alexdenisov/Projects/OpenSSL/openssl/destest.bitcode.list
+timeout: 10000
+exclude_locations:
+  - testutil
+# tests:
+#   - CustomFormatterTest.Format
+#   - ContainerBufferTest.Empty
+# dynamic_library_file_list: /Users/alexdenisov/Projects/Mull/mull/BuildNinja/dylibs.list
+diagnostics: false
+mutation_operators:
+  - all
+
+custom_tests:
+  - name: test_des_ecb
+    method: test_des_ecb
+    program: destest
+    arguments: [ test_des_ecb ]
+
+  - name: test_des_cbc
+    method: test_des_cbc
+    program: destest
+    arguments: [ test_des_cbc ]
+
+  - name: test_ede_cbc
+    method: test_ede_cbc
+    program: destest
+    arguments: [ test_ede_cbc ]
+
+  - name: test_des_ede_ecb
+    method: test_des_ede_ecb
+    program: destest
+    arguments: [ test_des_ede_ecb ]
+
+  - name: test_des_ede_cbc
+    method: test_des_ede_cbc
+    program: destest
+    arguments: [ test_des_ede_cbc ]
+
+  - name: test_des_pcbc
+    method: test_des_pcbc
+    program: destest
+    arguments: [ test_des_pcbc ]
+
+  - name: test_des_cfb8
+    method: test_des_cfb8
+    program: destest
+    arguments: [ test_des_cfb8 ]
+
+  - name: test_des_cfb16
+    method: test_des_cfb16
+    program: destest
+    arguments: [ test_des_cfb16 ]
+
+  - name: test_des_cfb32
+    method: test_des_cfb32
+    program: destest
+    arguments: [ test_des_cfb32 ]
+
+  - name: test_des_cfb48
+    method: test_des_cfb48
+    program: destest
+    arguments: [ test_des_cfb48 ]
+
+  - name: test_des_cfb64
+    method: test_des_cfb64
+    program: destest
+    arguments: [ test_des_cfb64 ]
+
+  - name: test_des_ede_cfb64
+    method: test_des_ede_cfb64
+    program: destest
+    arguments: [ test_des_ede_cfb64 ]
+
+  - name: test_des_ofb
+    method: test_des_ofb
+    program: destest
+    arguments: [ test_des_ofb ]
+
+  - name: test_des_ofb64
+    method: test_des_ofb64
+    program: destest
+    arguments: [ test_des_ofb64 ]
+
+  - name: test_des_ede_ofb64
+    method: test_des_ede_ofb64
+    program: destest
+    arguments: [ test_des_ede_ofb64 ]
+
+  - name: test_des_cbc_cksum
+    method: test_des_cbc_cksum
+    program: destest
+    arguments: [ test_des_cbc_cksum ]
+
+  - name: test_des_quad_cksum
+    method: test_des_quad_cksum
+    program: destest
+    arguments: [ test_des_quad_cksum ]
+
+  - name: test_des_crypt
+    method: test_des_crypt
+    program: destest
+    arguments: [ test_des_crypt ]
+
+  - name: test_input_align
+    method: test_input_align
+    program: destest
+    arguments: [ test_input_align ]
+
+  - name: test_output_align
+    method: test_output_align
+    program: destest
+    arguments: [ test_output_align ]
+
