@@ -1,0 +1,47 @@
+#fork: false
+fork: true
+project_name: OpenSSL_bio_enc_test
+# max_distance: 1
+dry_run: true
+cache_directory: /usr/local/LLVM/mull_cache
+use_cache: false
+test_framework: CustomTest
+bitcode_file_list: /Users/alexdenisov/Projects/OpenSSL/openssl/bio_enc_test.bitcode.list
+timeout: 10000
+exclude_locations:
+  - testutil
+diagnostics: false
+mutation_operators:
+  - all
+
+custom_tests:
+  - name: test_bio_enc_aes_128_cbc
+    method: test_bio_enc_aes_128_cbc
+    program: bio_enc_test
+    arguments: [ test_bio_enc_aes_128_cbc ]
+
+  - name: test_bio_enc_aes_128_ctr
+    method: test_uint
+    program: test_bio_enc_aes_128_ctr
+    arguments: [ test_bio_enc_aes_128_ctr ]
+
+  - name: test_bio_enc_aes_256_cfb
+    method: test_bio_enc_aes_256_cfb
+    program: test_char
+    arguments: [ test_bio_enc_aes_256_cfb ]
+
+  - name: test_bio_enc_aes_256_ofb
+    method: test_bio_enc_aes_256_ofb
+    program: bio_enc_test
+    arguments: [ test_bio_enc_aes_256_ofb ]
+
+  - name: test_bio_enc_chacha20
+    method: test_bio_enc_chacha20
+    program: bio_enc_test
+    arguments: [ test_bio_enc_chacha20 ]
+
+  - name: test_bio_enc_chacha20_poly1305
+    method: test_bio_enc_chacha20_poly1305
+    program: bio_enc_test
+    arguments: [ test_bio_enc_chacha20_poly1305 ]
+

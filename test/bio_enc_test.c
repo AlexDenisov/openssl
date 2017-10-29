@@ -216,8 +216,34 @@ static int test_bio_enc_chacha20_poly1305(int idx)
 #  endif
 # endif
 
+#define PICK_TEST(test) \
+  if (strcmp(test_name, "" # test) == 0) {\
+    ADD_TEST(test); \
+  }
+
+#define PICK_ALL_TESTS(test, args) \
+  if (strcmp(test_name, "" # test) == 0) {\
+    ADD_ALL_TESTS(test, (args)); \
+  }
+
+void setup_single_tests(void)
+{
+  char *test_name = test_get_argument(0);
+
+  PICK_ALL_TESTS(test_bio_enc_aes_128_cbc, 2);
+  PICK_ALL_TESTS(test_bio_enc_aes_128_ctr, 2);
+  PICK_ALL_TESTS(test_bio_enc_aes_256_cfb, 2);
+  PICK_ALL_TESTS(test_bio_enc_aes_256_ofb, 2);
+  PICK_ALL_TESTS(test_bio_enc_chacha20, 2);
+  PICK_ALL_TESTS(test_bio_enc_chacha20_poly1305, 2);
+}
+
 int setup_tests(void)
 {
+    if (test_get_argument_count() > 0) {
+      setup_single_tests();
+      return 1;
+    }
     ADD_ALL_TESTS(test_bio_enc_aes_128_cbc, 2);
     ADD_ALL_TESTS(test_bio_enc_aes_128_ctr, 2);
     ADD_ALL_TESTS(test_bio_enc_aes_256_cfb, 2);
