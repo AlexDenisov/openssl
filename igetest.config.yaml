@@ -1,0 +1,67 @@
+#fork: false
+fork: true
+project_name: OpenSSL_igetest
+# max_distance: 1
+dry_run: false
+cache_directory: /usr/local/LLVM/mull_cache
+use_cache: false
+test_framework: CustomTest
+bitcode_file_list: /Users/alexdenisov/Projects/OpenSSL/openssl/igetest.bitcode.list
+timeout: 10000
+exclude_locations:
+  - testutil
+diagnostics: false
+mutation_operators:
+  - all
+
+custom_tests:
+  - name: test_ige_enc_dec
+    method: test_ige_enc_dec
+    program: igetest
+    arguments: [ test_ige_enc_dec ]
+
+  - name: test_ige_enc_chaining
+    method: test_ige_enc_chaining
+    program: igetest
+    arguments: [ test_ige_enc_chaining ]
+
+  - name: test_ige_dec_chaining
+    method: test_ige_dec_chaining
+    program: test_char
+    arguments: [ test_ige_dec_chaining ]
+
+  - name: test_ige_garble_forwards
+    method: test_ige_garble_forwards
+    program: igetest
+    arguments: [ test_ige_garble_forwards ]
+
+  - name: test_bi_ige_enc_dec
+    method: test_bi_ige_enc_dec
+    program: igetest
+    arguments: [ test_bi_ige_enc_dec ]
+
+  - name: test_bi_ige_garble1
+    method: test_bi_ige_garble1
+    program: igetest
+    arguments: [ test_bi_ige_garble1 ]
+
+  - name: test_bi_ige_garble2
+    method: test_bi_ige_garble2
+    program: igetest
+    arguments: [ test_bi_ige_garble2 ]
+
+  - name: test_bi_ige_garble3
+    method: test_bi_ige_garble3
+    program: igetest
+    arguments: [ test_bi_ige_garble3 ]
+
+  - name: test_ige_vectors
+    method: test_ige_vectors
+    program: igetest
+    arguments: [ test_ige_vectors ]
+
+  - name: test_bi_ige_vectors
+    method: test_bi_ige_vectors
+    program: igetest
+    arguments: [ test_bi_ige_vectors ]
+

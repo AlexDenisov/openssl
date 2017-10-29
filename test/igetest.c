@@ -433,12 +433,43 @@ static int test_bi_ige_garble3(void)
     return TEST_size_t_le(matches, sizeof(checktext) / 100);
 }
 
+#define PICK_TEST(test) \
+  if (strcmp(test_name, "" # test) == 0) {\
+    ADD_TEST(test); \
+  }\
+
+#define PICK_ALL_TESTS(test, args) \
+  if (strcmp(test_name, "" # test) == 0) {\
+    ADD_ALL_TESTS(test, (args)); \
+  }
+
+void setup_single_tests(void)
+{
+  char *test_name = test_get_argument(0);
+
+  PICK_TEST(test_ige_enc_dec);
+  PICK_TEST(test_ige_enc_chaining);
+  PICK_TEST(test_ige_dec_chaining);
+  PICK_TEST(test_ige_garble_forwards);
+  PICK_TEST(test_bi_ige_enc_dec);
+  PICK_TEST(test_bi_ige_garble1);
+  PICK_TEST(test_bi_ige_garble2);
+  PICK_TEST(test_bi_ige_garble3);
+  PICK_ALL_TESTS(test_ige_vectors, OSSL_NELEM(ige_test_vectors));
+  PICK_ALL_TESTS(test_bi_ige_vectors, OSSL_NELEM(bi_ige_test_vectors));
+}
+
 int setup_tests(void)
 {
     RAND_bytes(rkey, sizeof(rkey));
     RAND_bytes(rkey2, sizeof(rkey2));
     RAND_bytes(plaintext, sizeof(plaintext));
     RAND_bytes(saved_iv, sizeof(saved_iv));
+
+    if (test_get_argument_count() > 0) {
+      setup_single_tests();
+      return 1;
+    }
 
     ADD_TEST(test_ige_enc_dec);
     ADD_TEST(test_ige_enc_chaining);
