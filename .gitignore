@@ -184,3 +184,4 @@ doc-nits
 
 # Mull
 *.ll
+*.sqlite

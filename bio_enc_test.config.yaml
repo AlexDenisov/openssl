@@ -1,18 +1,16 @@
-#fork: false
-fork: true
 project_name: OpenSSL_bio_enc_test
-# max_distance: 1
-dry_run: true
-cache_directory: /usr/local/LLVM/mull_cache
-use_cache: false
 test_framework: CustomTest
-bitcode_file_list: /Users/alexdenisov/Projects/OpenSSL/openssl/bio_enc_test.bitcode.list
+bitcode_file_list: /opt/mull/openssl/openssl/bio_enc_test.bitcode.list
+fork: enabled
+dry_run: disabled
+fail_fast: enabled
+use_cache: yes
+cache_directory: /opt/mull/openssl/bio_enc_test_cache
 timeout: 10000
 exclude_locations:
   - testutil
-diagnostics: false
-mutation_operators:
-  - all
+mutators:
+  - default
 
 custom_tests:
   - name: test_bio_enc_aes_128_cbc
@@ -21,8 +19,8 @@ custom_tests:
     arguments: [ test_bio_enc_aes_128_cbc ]
 
   - name: test_bio_enc_aes_128_ctr
-    method: test_uint
-    program: test_bio_enc_aes_128_ctr
+    method: test_bio_enc_aes_128_ctr
+    program: bio_enc_test
     arguments: [ test_bio_enc_aes_128_ctr ]
 
   - name: test_bio_enc_aes_256_cfb
