@@ -6,6 +6,7 @@
 /opt/mull/openssl/openssl/crypto/aes/aes_misc.o
 /opt/mull/openssl/openssl/crypto/aes/aes_ofb.o
 /opt/mull/openssl/openssl/crypto/aes/aes_wrap.o
+/opt/mull/openssl/openssl/crypto/aria/aria.o
 /opt/mull/openssl/openssl/crypto/asn1/a_bitstr.o
 /opt/mull/openssl/openssl/crypto/asn1/a_d2i_fp.o
 /opt/mull/openssl/openssl/crypto/asn1/a_digest.o
@@ -227,6 +228,7 @@
 /opt/mull/openssl/openssl/crypto/dh/dh_pmeth.o
 /opt/mull/openssl/openssl/crypto/dh/dh_prn.o
 /opt/mull/openssl/openssl/crypto/dh/dh_rfc5114.o
+/opt/mull/openssl/openssl/crypto/dh/dh_rfc7919.o
 /opt/mull/openssl/openssl/crypto/dsa/dsa_ameth.o
 /opt/mull/openssl/openssl/crypto/dsa/dsa_asn1.o
 /opt/mull/openssl/openssl/crypto/dsa/dsa_depr.o
@@ -249,6 +251,12 @@
 /opt/mull/openssl/openssl/crypto/dso/dso_win32.o
 /opt/mull/openssl/openssl/crypto/ebcdic.o
 /opt/mull/openssl/openssl/crypto/ec/curve25519.o
+/opt/mull/openssl/openssl/crypto/ec/curve448/arch_32/f_impl.o
+/opt/mull/openssl/openssl/crypto/ec/curve448/curve448.o
+/opt/mull/openssl/openssl/crypto/ec/curve448/curve448_tables.o
+/opt/mull/openssl/openssl/crypto/ec/curve448/eddsa.o
+/opt/mull/openssl/openssl/crypto/ec/curve448/f_generic.o
+/opt/mull/openssl/openssl/crypto/ec/curve448/scalar.o
 /opt/mull/openssl/openssl/crypto/ec/ec2_mult.o
 /opt/mull/openssl/openssl/crypto/ec/ec2_oct.o
 /opt/mull/openssl/openssl/crypto/ec/ec2_smpl.o
@@ -331,6 +339,7 @@
 /opt/mull/openssl/openssl/crypto/evp/e_rc4_hmac_md5.o
 /opt/mull/openssl/openssl/crypto/evp/e_rc5.o
 /opt/mull/openssl/openssl/crypto/evp/e_seed.o
+/opt/mull/openssl/openssl/crypto/evp/e_sm4.o
 /opt/mull/openssl/openssl/crypto/evp/e_xcbc_d.o
 /opt/mull/openssl/openssl/crypto/evp/encode.o
 /opt/mull/openssl/openssl/crypto/evp/evp_cnf.o
@@ -460,8 +469,8 @@
 /opt/mull/openssl/openssl/crypto/poly1305/poly1305.o
 /opt/mull/openssl/openssl/crypto/poly1305/poly1305_ameth.o
 /opt/mull/openssl/openssl/crypto/poly1305/poly1305_pmeth.o
+/opt/mull/openssl/openssl/crypto/rand/drbg_ctr.o
 /opt/mull/openssl/openssl/crypto/rand/drbg_lib.o
-/opt/mull/openssl/openssl/crypto/rand/drbg_rand.o
 /opt/mull/openssl/openssl/crypto/rand/rand_egd.o
 /opt/mull/openssl/openssl/crypto/rand/rand_err.o
 /opt/mull/openssl/openssl/crypto/rand/rand_lib.o
@@ -487,6 +496,7 @@
 /opt/mull/openssl/openssl/crypto/rsa/rsa_gen.o
 /opt/mull/openssl/openssl/crypto/rsa/rsa_lib.o
 /opt/mull/openssl/openssl/crypto/rsa/rsa_meth.o
+/opt/mull/openssl/openssl/crypto/rsa/rsa_mp.o
 /opt/mull/openssl/openssl/crypto/rsa/rsa_none.o
 /opt/mull/openssl/openssl/crypto/rsa/rsa_oaep.o
 /opt/mull/openssl/openssl/crypto/rsa/rsa_ossl.o
@@ -512,6 +522,9 @@
 /opt/mull/openssl/openssl/crypto/siphash/siphash.o
 /opt/mull/openssl/openssl/crypto/siphash/siphash_ameth.o
 /opt/mull/openssl/openssl/crypto/siphash/siphash_pmeth.o
+/opt/mull/openssl/openssl/crypto/sm3/m_sm3.o
+/opt/mull/openssl/openssl/crypto/sm3/sm3.o
+/opt/mull/openssl/openssl/crypto/sm4/sm4.o
 /opt/mull/openssl/openssl/crypto/srp/srp_lib.o
 /opt/mull/openssl/openssl/crypto/srp/srp_vfy.o
 /opt/mull/openssl/openssl/crypto/stack/stack.o

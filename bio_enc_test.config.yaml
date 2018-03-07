@@ -12,6 +12,10 @@ exclude_locations:
 mutators:
   - default
 
+reporters:
+  - time
+  - sqlite
+
 custom_tests:
   - name: test_bio_enc_aes_128_cbc
     method: test_bio_enc_aes_128_cbc
