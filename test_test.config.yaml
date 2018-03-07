@@ -1,18 +1,16 @@
-#fork: false
-fork: true
 project_name: OpenSSL_test_test
-# max_distance: 1
-dry_run: false
-cache_directory: /usr/local/LLVM/mull_cache
-use_cache: false
 test_framework: CustomTest
-bitcode_file_list: /Users/alexdenisov/Projects/OpenSSL/openssl/test_test.bitcode.list
+bitcode_file_list: /opt/mull/openssl/openssl/test_test.bitcode.list
+fork: enabled
+dry_run: disabled
+fail_fast: enabled
+use_cache: yes
+cache_directory: /opt/mull/openssl/test_test_cache
 timeout: 10000
 exclude_locations:
   - testutil
-diagnostics: false
-mutation_operators:
-  - all
+mutators:
+  - default
 
 custom_tests:
   - name: test_int
